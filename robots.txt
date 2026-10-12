@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://uttarakhandtaxicab.com/sitemap.xml
