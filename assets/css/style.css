@@ -453,7 +453,16 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--y
 .review-fallback { flex-basis: min(560px, 100%); background: var(--asphalt); border-color: var(--asphalt); color: #fff; }
 .review-fallback .review-card-head small { color: rgba(255, 255, 255, .6); }
 .review-stars { margin-bottom: 10px; color: #f5a400; letter-spacing: 2px; font-size: 1.1rem; }
-.review-card p { color: var(--muted); }
+
+
+.review-card p { color: var(--muted); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; overflow: hidden; margin-bottom: 10px; }
+.review-card.is-open p { display: block; -webkit-line-clamp: unset; line-clamp: unset; overflow: visible; }
+.review-fallback p { display: block; overflow: visible; }
+.review-carousel { align-items: flex-start; }
+.review-more { display: block; margin: 0 0 16px; padding: 0 0 2px; border: 0; border-bottom: 2px solid var(--yellow); background: none; color: var(--asphalt); font: 700 14px/1.2 var(--body); transition: color .2s; }
+.review-more:hover { color: var(--hill); }
+
+
 .review-fallback p { color: rgba(255, 255, 255, .78); }
 .review-card > a { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; color: var(--hill); }
 .review-fallback > a { color: var(--yellow); }

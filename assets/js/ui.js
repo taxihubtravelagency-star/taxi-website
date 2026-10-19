@@ -125,3 +125,38 @@
   list.before(tabs);
   select(0);
 })();
+
+
+
+
+
+
+
+
+// 6 ─ Reviews: long reviews are cut to 5 lines with a Read more / Show less toggle ─────
+(() => {
+  const box = document.querySelector('.review-carousel');
+  if (!box) return;
+  const enhance = () => {
+    box.querySelectorAll('.review-card:not(.review-fallback)').forEach(card => {
+      const text = card.querySelector('p');
+      if (!text || card.dataset.clamp) return;
+      card.dataset.clamp = '1';
+      const needsToggle = card.classList.contains('is-open') || text.scrollHeight > text.clientHeight + 2;
+      if (!needsToggle) return;
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'review-more';
+      button.setAttribute('aria-expanded', 'false');
+      button.textContent = 'Read more';
+      button.addEventListener('click', () => {
+        const open = card.classList.toggle('is-open');
+        button.setAttribute('aria-expanded', String(open));
+        button.textContent = open ? 'Show less' : 'Read more';
+      });
+      text.after(button);
+    });
+  };
+  new MutationObserver(() => (document.fonts?.ready || Promise.resolve()).then(() => requestAnimationFrame(enhance))).observe(box, { childList: true });
+  (document.fonts?.ready || Promise.resolve()).then(() => requestAnimationFrame(enhance));
+})();
