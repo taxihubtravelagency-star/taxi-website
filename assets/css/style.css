@@ -223,6 +223,11 @@ ul { margin: 0; padding: 0; }
 .hero-dot { width: 10px; height: 10px; padding: 0; border-radius: 6px; border: 0; background: rgba(255, 255, 255, .45); transition: width .3s, background-color .3s; }
 .hero-dot.active { width: 30px; background: var(--yellow); }
 
+
+/* Call + address line under the hero facts */
+.hero-contact { display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 18px 0 0; max-width: 62ch; font-size: 14px; color: rgba(255, 255, 255, .72); }
+.hero-contact a { color: #fff; font-weight: 700; border-bottom: 1px solid var(--yellow); }
+
 /* The road: asphalt strip with lane line and one taxi that drives in and parks */
 .hero-road { position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; height: 96px; background: linear-gradient(180deg, #23262d, var(--asphalt)); border-top: 3px solid #3a3f49; }
 .hero-road::before { content: ""; position: absolute; left: 0; right: 0; top: 26px; height: 4px; background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .8) 0 38px, transparent 38px 76px); animation: lane 2.6s cubic-bezier(.2, .7, .3, 1) both; }
